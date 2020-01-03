@@ -36,7 +36,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/auth").permitAll()
-                //TODO look into antPatterns, they don't work as expected
+                //TODO look into antPatterns
                 .and().authorizeRequests().antMatchers("/user/*").access("hasRole('ROLE_USER')")
                 .and().authorizeRequests().antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated()
